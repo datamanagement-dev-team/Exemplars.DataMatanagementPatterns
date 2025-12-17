@@ -1,0 +1,7 @@
+{
+	"KafkaInfrastructureConfiguration": {
+		"BootstrapServers": "devgr-kafka-01.devgr-novibet.systems:29092,devgr-kafka-01.devgr-novibet.systems:29093,devgr-kafka-01.devgr-novibet.systems:29094",
+		"ClientId": "DataManagementPatterns_ClientId",
+		"GroupId": "DataManagementPatterns_GroupId"
+	}
+}

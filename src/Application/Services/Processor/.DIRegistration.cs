@@ -9,6 +9,8 @@ namespace BlueBrown.Data.DataManagementPatterns.Application.Services.Processor
 		internal static void RegisterProcessor(this ContainerBuilder builder)
 		{
 			builder.RegisterDecorator<ProcessorLogAndMetricsDecorator, IProcessor>();
+			builder.RegisterDecorator<ProcessorExceptionHandlingDecorator, IProcessor>();
+			builder.RegisterDecorator<ProcessorReadinessDecorator, IProcessor>();
 		}
 	}
 }

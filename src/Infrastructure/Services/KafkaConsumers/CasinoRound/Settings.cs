@@ -4,7 +4,7 @@ using BlueBrown.Data.DataManagementPatterns.Application;
 
 namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaConsumers.CasinoRound
 {
-	internal record CasinoRoundKafkaSettings : ICasinoRoundKafkaSettings, IValidatable
+	internal record CasinoRoundKafkaSettings : ICasinoRoundKafkaSettings, ISettings
 	{
 		public const string ConfigurationKey = "casinoroundkafkaconfiguration";
 
@@ -17,7 +17,18 @@ namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaCon
 
 		public IReadOnlyCollection<string> Validate()
 		{
-			throw new NotImplementedException();
+			var errors = new List<string>();
+
+			if (BatchSize < 1)
+				errors.Add($"{nameof(ICasinoRoundKafkaSettings.BatchSize)} should be greater than zero");
+
+			if (string.IsNullOrWhiteSpace(TopicName))
+				errors.Add($"{nameof(ICasinoRoundKafkaSettings.TopicName)} should not be null");
+
+			if (string.IsNullOrWhiteSpace(OptionalGroupId))
+				errors.Add($"{nameof(ICasinoRoundKafkaSettings.OptionalGroupId)} should not be null or empty");
+
+			return errors;
 		}
 	}
 }

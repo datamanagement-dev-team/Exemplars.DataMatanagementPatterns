@@ -1,0 +1,7 @@
+{
+	"KafkaInfrastructureConfiguration": {
+		"BootstrapServers": "prd-kafka-01.prd-novibet.systems:29092,prd-kafka-02.prd-novibet.systems:29093,prd-kafka-03.prd-novibet.systems:29094",
+		"ClientId": "DataManagementPatterns_ClientId",
+		"GroupId": "DataManagementPatterns_GroupId"
+	}
+}

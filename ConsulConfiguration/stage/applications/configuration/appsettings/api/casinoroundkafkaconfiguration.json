@@ -1,0 +1,10 @@
+{
+	"CasinoRoundKafkaConfiguration": {
+		"EnableLogs": false,
+		"BatchSize": 1000,
+		"PartitionPositionOffset": "Beginning",
+		"TopicName": "stgCasinoRounds",
+		"OptionalGroupId": "DataManagementPatterns_CasinoRounds",
+		"Enable": true
+	}
+}

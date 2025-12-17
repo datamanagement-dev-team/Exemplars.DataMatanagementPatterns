@@ -19,7 +19,7 @@ namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.JobSched
 
 		public async Task ScheduleJobs(CancellationToken cancellationToken = default)
 		{
-			await ScheduleJob<Job>(_settings.Job.SchedulerTriggerIntervalInSeconds, cancellationToken);
+			await ScheduleJob<Job>(_settings.Job.SchedulerTriggerIntervalInSeconds!.Value, cancellationToken);
 		}
 
 		public async Task InterruptJob(string jobTypeName, CancellationToken cancellationToken = default)

@@ -38,6 +38,8 @@ namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaCon
 				throw exception;
 			}
 
+			services.AddSingleton(casinoRoundKafkaSettings);
+
 			services.RegisterKafkaConsumers(_configurator =>
 			{
 				_configurator.WithSettings(kafkaInfrastructureSettings);
@@ -61,7 +63,11 @@ namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaCon
 				.As<ITopicPartitionOffsetRepository>()
 				.InstancePerLifetimeScope();
 
-			builder.RegisterDecorator<CasinoRoundKafkaConsumerLogAndMetricsDecorator, ICasinoRoundKafkaConsumer>();
+			builder.RegisterDecorator<CasinoRoundKafkaConsumerLogAndMetricsDecorator, ICasinoRoundKafkaConsumer>(_context =>
+			{
+				var settings = _context.Resolve<CasinoRoundKafkaSettings>();
+				return settings.Enable;
+			});
 		}
 	}
 }

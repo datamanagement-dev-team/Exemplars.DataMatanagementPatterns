@@ -3,7 +3,7 @@ using BlueBrown.Data.DataManagementPatterns.Application;
 
 namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaConsumers
 {
-	internal record KafkaInfrastructureSettings : IKafkaInfrastructureSettings, IValidatable
+	internal record KafkaInfrastructureSettings : IKafkaInfrastructureSettings, ISettings
 	{
 		public const string ConfigurationKey = "kafkainfrastructureconfiguration";
 
