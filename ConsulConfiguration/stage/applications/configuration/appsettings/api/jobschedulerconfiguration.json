@@ -1,0 +1,9 @@
+{
+	"JobSchedulerConfiguration": {
+		"SchedulerClusteringCheckInIntervalInSeconds": 60,
+		"SchedulerMisfireThresholdInSeconds": 120,
+		"Job": {
+			"SchedulerTriggerIntervalInSeconds": 60
+		}
+	}
+}

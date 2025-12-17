@@ -1,0 +1,7 @@
+{
+	"MessageBrokerConfiguration": {
+		"Enabled": true,
+		"UsernamePassword": "{VAULT:rabbitmq:services.datamanagementpatterns}",
+		"Endpoint": "rabbitmq://devgr-rbt-01.devgr-novibet.systems/bbsystem"
+	}
+}

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>BlueBrown.Data.DataManagementPatterns.Shared</AssemblyName>
+		<RootNamespace>BlueBrown.Data.DataManagementPatterns.Shared</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="BlueBrown.Data.DataManagementPatterns.Shared.Tests" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.1" />
+		<PackageReference Include="NJsonSchema" Version="11.5.2" />
+		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="113.0.0" />
+	</ItemGroup>
+
+</Project>

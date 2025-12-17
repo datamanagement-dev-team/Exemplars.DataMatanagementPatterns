@@ -1,0 +1,42 @@
+# Author: Devops
+# Description: Building and Pushing a Nuget Package
+# Requires .github/metadata.yml file with NugetPackages entry
+
+name: Nuget Push
+on:
+  workflow_dispatch:
+    inputs:
+        nuget:
+            type: string
+            description: "Nuget (e.g Shared, HttpClient)"
+            required: true
+        mode:
+            type: choice
+            description: Build Mode
+            options:
+                - Debug
+                - Release
+        version:
+          type: string
+          description: Version (Leave empty for debug)
+        description:
+          type: string
+          description: "Package description"
+          required: false
+
+run-name: "NuGet push '${{ inputs.nuget }}' in '${{ inputs.mode }}' mode"
+
+env:
+  DOTNET_INSTALL_DIR: "./.dotnet"
+  META_DATA_FILE: ".github/metadata.yml"
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-nuget-push-common.yml@latest
+    with:
+      nuget: ${{ inputs.nuget }}
+      mode: ${{ inputs.mode }}
+      version: ${{ inputs.version }}
+      description: ${{ inputs.description }}
+    secrets: inherit

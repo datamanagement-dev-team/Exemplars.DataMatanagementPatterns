@@ -1,0 +1,16 @@
+{
+	"FundHttpClientConfiguration": {
+	"BaseUrl": "http://services-funds.stg-novibet.systems",
+	"HealthCheckEndpoint": "/healthz/ping",
+	"Resilience": {
+		"Retry": {
+			"MaxRetryAttempts": 3,
+			"DelayInMilliseconds": 200,
+			"DelayBackoffType": "Constant"
+		},
+		"Timeout": {
+			"TimeoutInMilliseconds": 500
+		}
+	}
+}
+}

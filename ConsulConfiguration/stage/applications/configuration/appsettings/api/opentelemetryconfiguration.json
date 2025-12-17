@@ -1,0 +1,6 @@
+{
+	"OpenTelemetryConfiguration": {
+		"ServiceVersion": "1",
+		"Url": "http://apm.stg-novibet.systems:4317"
+	}
+}

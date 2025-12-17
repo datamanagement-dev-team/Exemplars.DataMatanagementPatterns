@@ -1,0 +1,31 @@
+branches:
+  release:
+    mode: ContinuousDeployment
+    tag: release
+    increment: None
+    source-branches: [ 'develop' ]
+    is-source-branch-for: [ 'main' ]
+  main:
+    regex: ^master$|^main$
+    mode: ContinuousDeployment
+    tag: ''
+    increment: Patch
+    is-source-branch-for: [ 'hotfix' ]
+  develop:
+    mode: ContinuousDeployment
+    tag: develop
+    increment: Minor
+    is-source-branch-for: [ 'release', 'feature' ]			
+  feature:
+    mode: ContinuousDeployment
+    tag: useBranchName
+    increment: Inherit
+    source-branches: [ 'develop' ]
+  hotfix:
+    mode: ContinuousDeployment
+    tag: hotfix
+    increment: None
+    is-release-branch: true
+    source-branches: [ 'main', 'release' ]
+    is-source-branch-for: [ 'develop' ]
+

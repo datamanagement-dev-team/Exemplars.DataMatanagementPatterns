@@ -1,0 +1,29 @@
+# Author:      DevOps
+# Description: CI - Docker Build Test
+# Needs:       .github/metadata.yml
+# Version:     1.1.0
+
+name: CI - Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - .github/workflows/**
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - labeled
+    branches:
+      - "**"
+
+run-name: "Docker build test on '${{ github.event.pull_request.head.ref || github.ref_name }}'"
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-ci-docker.yml@latest
+    secrets: inherit

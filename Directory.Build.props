@@ -1,0 +1,8 @@
+<Project>
+	<PropertyGroup>
+		<RestoreAdditionalProjectSources>
+			https://www.nuget.org/api/v2/;
+			https://nuget.pkg.github.com/Novibet/index.json;
+		</RestoreAdditionalProjectSources>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,10 @@
+name: DACPAC - Restore Databases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-dacpac-restore.yml@latest
+    secrets: inherit

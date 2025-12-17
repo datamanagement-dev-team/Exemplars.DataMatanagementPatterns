@@ -1,0 +1,18 @@
+# Author: Platform Team
+# Description: Checks that there are no pending code coverage workflows working in the background.
+# This is used to mitigate conflicts when a background code coverage run is in progress.
+# Currently this is being used when merging from master into develop.
+
+name: Check pending workflows
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]  # Trigger when a PR is created or updated
+    branches:
+      - 'develop'
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-check-pending-workflows.yml@latest
+    secrets: inherit

@@ -1,0 +1,11 @@
+{
+	"SqlDatabaseConfiguration": {
+		"ConnectionStringTemplate": "Data Source={0};Initial Catalog={1};Transaction Binding=Explicit Unbind;Persist Security Info=True;User ID={2};Password={3};Connect Timeout=60;MultiSubnetFailover=True;Encrypt=True;TrustServerCertificate=True",
+		"DataManagementPatterns": {
+			"UsernamePassword": "{VAULT:sql:services.DataManagementPatterns}",
+			"DataSource": "stg-db.dev-novibet.local",
+			"InitialCatalog": "DataManagementPatterns",
+			"IsReadOnly": false
+		}
+	}
+}

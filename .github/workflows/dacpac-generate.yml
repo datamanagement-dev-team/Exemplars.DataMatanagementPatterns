@@ -1,0 +1,33 @@
+name: DACPAC - Generate DB Schema
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        type: choice
+        options:
+          - "dev"
+          - "stg"
+        required: true
+      platform:
+        description: Platform (Leave empty for dev)
+        type: choice
+        options:
+          - ''
+          - "eur"
+          - "cen"
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-dacpac-generate.yml@latest
+    with:
+      environment: ${{ inputs.environment }}
+      platform: ${{ inputs.platform }}
+    secrets: inherit

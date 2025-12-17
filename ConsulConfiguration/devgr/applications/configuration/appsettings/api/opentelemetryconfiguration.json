@@ -1,0 +1,6 @@
+{
+	"OpenTelemetryConfiguration": {
+		"ServiceVersion": "1",
+		"Url": "http://devgr-tempo-01.devgr-novibet.systems:4317"
+	}
+}

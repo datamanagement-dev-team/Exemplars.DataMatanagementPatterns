@@ -1,0 +1,22 @@
+# Author: DevOps & Platform Team
+# Description: DotNet Test Workflow with Coverage
+# Image code-coverage has:
+# SDKs: netcore3.1, net5.0, net6.0, net7.0, net8.0
+# Dependencies: jq, reportgenerator, curl, git, gh-cli, bash and others necessary for SDKs and Runtimes.
+# Repository variables: TEST_PROJECT_FILES, SOLUTION_FILE
+# Example for SOLUTION_FILE: "path_to_file/solution_file.sln"
+# Example for TEST_PROJECT_FILES: "path_to_file_1/test_project_1.csproj,path_to_file_2/test_project_2.csproj"
+# UseShortSummary is used to reduce the README Code Coverage text if true
+
+name: Run Code Coverage
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-code-coverage.yml@latest
+    secrets: inherit

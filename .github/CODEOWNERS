@@ -1,0 +1,20 @@
+# CODEOWNERS file
+# Automatically managed by FileDistributionApp
+
+.github/CODEOWNERS                         @Novibet/DevOps_ElevatedGatekeepers
+.github/metadata.yml                       @Novibet/devops
+.github/workflows                          @Novibet/devops
+.github/workflows/devops-auto-approval.yml @Novibet/DevOps_ElevatedGatekeepers
+ConsulConfiguration/**/*healthcheck*       @Novibet/devops
+ConsulConfiguration/**/*masstransit*       @Novibet/devops
+ConsulConfiguration/**/*messagebroker*     @Novibet/devops
+ConsulConfiguration/**/*mongo*             @Novibet/DBA_Team
+ConsulConfiguration/**/*rabbit*            @Novibet/devops
+ConsulConfiguration/**/*redis*             @Novibet/devops
+ConsulConfiguration/**/*sql*               @Novibet/DBA_Team
+GitVersion.yml                             @Novibet/devops
+NuGet.Config                               @Novibet/devops
+NuGet.config                               @Novibet/devops
+Nuget.Config                               @Novibet/devops
+Nuget.config                               @Novibet/devops
+nuget.config                               @Novibet/devops

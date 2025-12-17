@@ -1,0 +1,5 @@
+{
+	"CacheConfiguration": {
+		"ConnectionString": "{0},defaultDatabase=1,password={1},serviceName={2},allowAdmin=true"
+	}
+}

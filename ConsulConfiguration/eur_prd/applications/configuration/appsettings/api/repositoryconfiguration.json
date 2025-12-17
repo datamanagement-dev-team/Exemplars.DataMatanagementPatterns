@@ -1,0 +1,14 @@
+{
+	"RepositoryConfiguration": {
+		"Resilience": {
+			"Retry": {
+				"MaxRetryAttempts": 3,
+				"DelayInMilliseconds": 200,
+				"DelayBackoffType": "Constant"
+			},
+			"Timeout": {
+				"TimeoutInMilliseconds": 30
+			}
+		}
+	}
+}

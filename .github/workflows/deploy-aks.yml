@@ -1,0 +1,40 @@
+# Author:      DevOps
+# Description: Building and pushing an image version to service helm charts
+# Needs:       .github/metadata.yml - Read here for more info https://novibetgr.atlassian.net/wiki/spaces/DEVOPS/pages/2274459726/Repository+metadata.yml+-+v1.1.0
+# Version:     5.4.0
+
+name: Build & Push (AKS)
+on:
+  workflow_dispatch:
+    inputs:
+      build-project-name:
+        description: Project Name to Build (Leave empty for all in metadata)
+        type: string
+        required: false
+      helm-version-update-env:
+        description: Helm Version Update Environment
+        type: choice
+        default: dev
+        options:
+          - ''
+          - dev
+          - stg
+          - dvo
+  push:
+    branches:
+      - develop
+      - release/*
+      - hotfix/*
+    paths-ignore:
+      - .github/workflows/**
+
+run-name: "AKS build & push from branch '${{ github.ref_name }}' to env '${{ inputs.helm-version-update-env != '' && inputs.helm-version-update-env || 'N/A' }}'"
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-deploy-aks.yml@latest
+    with:
+      build-project-name: ${{ inputs.build-project-name }}
+      helm-version-update-env: ${{ inputs.helm-version-update-env }}
+    secrets: inherit

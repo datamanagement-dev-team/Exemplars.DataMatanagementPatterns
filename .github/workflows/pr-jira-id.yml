@@ -1,0 +1,12 @@
+# Author: Devops
+# Description: Links the jira ticket from branch name as a PR comment
+name: PR - Jira Link Update
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  workflow-call:
+    name: ⚙️ Job
+    uses: Novibet/devops.repofilesync/.github/workflows/sw-pr-jira-id.yml@latest
+    secrets: inherit
