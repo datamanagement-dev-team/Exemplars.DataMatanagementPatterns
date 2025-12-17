@@ -5,10 +5,22 @@ namespace BlueBrown.Data.DataManagementPatterns.Infrastructure.Services.KafkaCon
 {
 	internal record KafkaInfrastructureSettings : IKafkaInfrastructureSettings, ISettings
 	{
+		private string _clientId = string.Empty;
+
 		public const string ConfigurationKey = "kafkainfrastructureconfiguration";
 
 		public string BootstrapServers { get; init; } = string.Empty;
-		public string ClientId { get; init; } = string.Empty;
+		public string ClientId
+		{
+			get
+			{
+				return _clientId;
+			}
+			init
+			{
+				_clientId = $"{value}_{Environment.MachineName}";
+			}
+		}
 		public string GroupId { get; init; } = string.Empty;
 
 		public IReadOnlyCollection<string> Validate()
